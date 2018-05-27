@@ -56,10 +56,31 @@ class LandingPageState extends State<LandingPage>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+//      body: new Container(
+//        decoration: new BoxDecoration(
+//          image: new DecorationImage(
+//            image: new AssetImage("Allimages/food_background.jpg"),
+//            fit: BoxFit.cover,
+//          ),
+//        ),
+//        child: null /* add child content content here */,
+//      ),
       body: new Stack(
         children: <Widget>[
+
           new AnimatedBackground(),
           _buildStackedCircles(),
+          new Container(
+            padding: const EdgeInsets.only(top: 250.0,left:55.0 , right:40.0 , bottom: 8.0),
+            child: new Text(
+              'Smart Chef',
+              style: new TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 60.0,
+              ),
+            ),
+          ),
+
           //_centre_text(),
           //new SpreadCircles(),
           _buildButtomButtons(),
@@ -104,7 +125,8 @@ class LandingPageState extends State<LandingPage>
   }
 
   Widget _centre_text(){
-    
+
+
   }
 
   Widget _buildButtomButtons() {
