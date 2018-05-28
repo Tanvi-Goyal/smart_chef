@@ -48,12 +48,21 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         title: Text("SmartChef"),
         actions: <Widget>[
           Padding(
-            child: Icon(Icons.search),
+            child: Icon(Icons.portrait),
             padding: const EdgeInsets.only(right: 10.0),
           )
         ],
       ),
   
+       body: new Container(
+        decoration: new BoxDecoration(
+          image: new DecorationImage(
+            image: new AssetImage("Allimages/homescreen_image.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: null /* add child content content here */,
+      ),
     );
   }
 }

@@ -9,7 +9,7 @@ var routes = <String, WidgetBuilder>{
 };
 
 void main() => runApp(new MaterialApp(
-  theme: 
+  theme:
         ThemeData(primaryColor: Colors.red, accentColor: Colors.yellow),
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
