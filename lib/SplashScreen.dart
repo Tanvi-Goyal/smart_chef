@@ -10,7 +10,6 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
     void initState() {
-      // TODO: implement initState
       super.initState();
       Timer(Duration(seconds: 3),()=> MyNavigator.goToIntro(context));
     }
@@ -21,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
         fit: StackFit.expand,
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(color: Colors.red),
+            decoration: BoxDecoration(color: Colors.blueAccent),
           ),
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -45,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     padding: EdgeInsets.only(top: 10.0)
                     ),
                     Text(
-                      "SmartChef" ,
+                      "Smart Chef" ,
                        style: TextStyle(
                          color: Colors.white,
                           fontSize: 24.0,
@@ -56,22 +55,68 @@ class _SplashScreenState extends State<SplashScreen> {
             )
             ),
             Expanded(
-              flex: 1,
+              flex: 2,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  CircularProgressIndicator(),
                   Padding(
-                    padding: EdgeInsets.only(top: 20.0),
+                    padding: EdgeInsets.only(top: 100.0),
                   ),
                   Text(
-                    "Welcome",
+                    "Welcome, on board",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold
                     ),
-                  )
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 120.0),
+                  ),
+                  Container(
+                    width: 350.0,
+                    height: 45.0,
+                    alignment: FractionalOffset.center,
+                    decoration: BoxDecoration(
+                      color: Colors.redAccent,
+                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                    ),
+                    child: FlatButton(
+                      onPressed: ()=> print("Google Tapped"),
+                      // textColor: Colors.white,
+                      child: Text(
+                        "Sign in with Google",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 19.0,
+                          letterSpacing: 0.3,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  ///FACEBOOK LOGN
+                  Padding(padding: EdgeInsets.only(top: 10.0),),
+                  Container(
+                    width: 350.0,
+                    height: 45.0,
+                    alignment: FractionalOffset.center,
+                    decoration: BoxDecoration(
+                      color: Colors.indigo,
+                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                    ),
+                    child: FlatButton(
+                      onPressed: ()=> print("Facebook Tapped"),
+                      child: Text(
+                        "Sign in with Facebook",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 19.0,
+                          letterSpacing: 0.3,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             )
@@ -82,3 +127,4 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+

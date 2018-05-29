@@ -6,40 +6,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
-  AnimationController animCtrl;
-  Animation<double> animation;
-
-  AnimationController animCtrl2;
-  Animation<double> animation2;
-
-  bool showFirst = true;
-
-  @override
-  void initState() {
-    super.initState();
-
-    animCtrl = new AnimationController(
-        duration: new Duration(milliseconds: 500), vsync: this);
-    animation = new CurvedAnimation(parent: animCtrl, curve: Curves.easeOut);
-    animation.addListener(() {
-      this.setState(() {});
-    });
-    animation.addStatusListener((AnimationStatus status) {});
-
-    animCtrl2 = new AnimationController(
-        duration: new Duration(milliseconds: 1000), vsync: this);
-    animation2 = new CurvedAnimation(parent: animCtrl2, curve: Curves.easeOut);
-    animation2.addListener(() {
-      this.setState(() {});
-    });
-    animation2.addStatusListener((AnimationStatus status) {});
-  }
-
-  @override
-  void dispose() {
-    animCtrl.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
        body: new Container(
         decoration: new BoxDecoration(
           image: new DecorationImage(
-            image: new AssetImage("Allimages/homescreen_image.jpg"),
+            image: new NetworkImage("https://firebasestorage.googleapis.com/v0/b/smart-chef21.appspot.com/o/Screenshot_20180509-231107.png?alt=media&token=f2a107a7-84cc-44a1-ae6b-cb175be2dcf2"),
             fit: BoxFit.cover,
           ),
         ),
