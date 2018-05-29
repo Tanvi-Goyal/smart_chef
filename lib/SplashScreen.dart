@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'MyNavigator.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+
+final GoogleSignIn _googleSignIn = GoogleSignIn();
+final FirebaseAuth auth = FirebaseAuth.instance;
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -11,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
     void initState() {
       super.initState();
-      Timer(Duration(seconds: 3),()=> MyNavigator.goToIntro(context));
+      // Timer(Duration(seconds: 3),()=> MyNavigator.goToIntro(context));
     }
   @override
   Widget build(BuildContext context) {
@@ -71,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 120.0),
+                    padding: EdgeInsets.only(top: 100.0),
                   ),
                   Container(
                     width: 350.0,
@@ -82,7 +88,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(30.0)),
                     ),
                     child: FlatButton(
-                      onPressed: ()=> print("Google Tapped"),
+                      onPressed: _signInWithGoogle,
                       // textColor: Colors.white,
                       child: Text(
                         "Sign in with Google",
@@ -126,5 +132,68 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
+}
+
+  Future<String> _signInWithGoogle() async {
+    final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+    final FirebaseUser user = await auth.signInWithGoogle(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    assert(user.email != null);
+    assert(user.displayName != null);
+    assert(!user.isAnonymous);
+    assert(await user.getIdToken() != null);
+
+    final FirebaseUser currentUser = await auth.currentUser();
+    assert(user.uid == currentUser.uid);
+    print("User:  $user");
+    return 'signInWithGoogle succeeded: $user';
+  }
+
+
+  Future<Null> _signInWithFacebook() async {
+    final FacebookLogin facebookSignIn = FacebookLogin();
+    final FacebookLoginResult result =
+        await facebookSignIn.logInWithReadPermissions(['email', 'user_gender', 'user_birthday', 'user_likes']);
+
+    switch (result.status) {
+      case FacebookLoginStatus.loggedIn:
+        final FacebookAccessToken accessToken = result.accessToken;
+
+        print('''
+         Logged in!
+         
+         Token: ${accessToken.token}
+         User id: ${accessToken.userId}
+         Expires: ${accessToken.expires}
+         Permissions: ${accessToken.permissions}
+         Declined permissions: ${accessToken.declinedPermissions}
+         ''');
+      final FirebaseUser user = await auth.signInWithFacebook(
+      accessToken:  result.accessToken.token,
+    );
+    assert(user.email != null);
+    assert(user.displayName != null);
+    assert(!user.isAnonymous);
+    assert(await user.getIdToken() != null);
+
+    final FirebaseUser currentUser = await auth.currentUser();
+    assert(user.uid == currentUser.uid);
+
+    print("User:  $user");
+
+
+        break;
+      case FacebookLoginStatus.cancelledByUser:
+        print('Login cancelled by the user.');
+        break;
+      case FacebookLoginStatus.error:
+        print('Something went wrong with the login process.\n'
+            'Here\'s the error Facebook gave us: ${result.errorMessage}');
+        break;
+    }
 }
 
