@@ -112,7 +112,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(30.0)),
                     ),
                     child: FlatButton(
-                      onPressed: ()=> print("Facebook Tapped"),
+                      onPressed: ()=> _signInWithFacebook(),
                       child: Text(
                         "Sign in with Facebook",
                         style: TextStyle(
@@ -135,6 +135,7 @@ class _SplashScreenState extends State<SplashScreen> {
 }
 
   Future<String> _signInWithGoogle() async {
+    print("object");
     final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
     final GoogleSignInAuthentication googleAuth =
         await googleUser.authentication;
@@ -155,9 +156,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
 
   Future<Null> _signInWithFacebook() async {
+    print("object");
     final FacebookLogin facebookSignIn = FacebookLogin();
     final FacebookLoginResult result =
-        await facebookSignIn.logInWithReadPermissions(['email', 'user_gender', 'user_birthday', 'user_likes']);
+        await facebookSignIn.logInWithReadPermissions(['email']);
 
     switch (result.status) {
       case FacebookLoginStatus.loggedIn:
