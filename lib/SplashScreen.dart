@@ -69,7 +69,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     padding: EdgeInsets.only(top: 100.0),
                   ),
                   Text(
-                    "Welcome, on board",
+                    "Welcome , on board",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18.0,
@@ -135,7 +135,6 @@ class _SplashScreenState extends State<SplashScreen> {
 }
 
   Future<String> _signInWithGoogle() async {
-    print("object");
     final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
     final GoogleSignInAuthentication googleAuth =
         await googleUser.authentication;
@@ -151,6 +150,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final FirebaseUser currentUser = await auth.currentUser();
     assert(user.uid == currentUser.uid);
     print("User:  $user");
+    
     return 'signInWithGoogle succeeded: $user';
   }
 
