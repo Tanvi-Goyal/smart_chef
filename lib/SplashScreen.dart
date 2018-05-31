@@ -7,6 +7,8 @@ import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 final FirebaseAuth auth = FirebaseAuth.instance;
+BuildContext c;
+String _name;
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -21,6 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     }
   @override
   Widget build(BuildContext context) {
+    c = context;
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -150,10 +153,10 @@ class _SplashScreenState extends State<SplashScreen> {
     final FirebaseUser currentUser = await auth.currentUser();
     assert(user.uid == currentUser.uid);
     print("User:  $user");
-    
+    _name = user.displayName;
+    MyNavigator.goToIntro(c);
     return 'signInWithGoogle succeeded: $user';
   }
-
 
   Future<Null> _signInWithFacebook() async {
     print("object");
@@ -186,7 +189,8 @@ class _SplashScreenState extends State<SplashScreen> {
     assert(user.uid == currentUser.uid);
 
     print("User:  $user");
-
+    _name = user.displayName;
+    MyNavigator.goToIntro(c);
 
         break;
       case FacebookLoginStatus.cancelledByUser:

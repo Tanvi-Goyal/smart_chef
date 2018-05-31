@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'MyNavigator.dart';
 import 'Walkthrough.dart';
+import 'SplashScreen.dart';
 
+String _name;
 class IntroScreen extends StatefulWidget {
   @override
   IntroScreenState createState() {
@@ -42,7 +44,7 @@ class IntroScreenState extends State<IntroScreen> {
             child: PageView(
               children: <Widget>[
                 Walkthrough(
-                  title: "WELCOME",
+                  title: "Welcome, User",
                   content: "A smart chef app",
                   imageIcon: Icons.mobile_screen_share,
                 ),
