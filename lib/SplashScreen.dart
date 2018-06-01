@@ -11,6 +11,13 @@ final FirebaseAuth auth = FirebaseAuth.instance;
 BuildContext c;
 String _name;
 
+_getUser() async {
+  FirebaseUser user = await FirebaseAuth.instance.currentUser();
+  if(user.uid != null){
+    MyNavigator.goToHome(c);
+  }
+}
+
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -20,6 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
     void initState() {
       super.initState();
+      _getUser();
       // Timer(Duration(seconds: 3),()=> MyNavigator.goToIntro(context));
     }
   @override
