@@ -77,29 +77,61 @@ final _controller = new PageController();
   static const _kCurve = Curves.ease;
   final _kArrowColor = Colors.black.withOpacity(0.8);
   final List<Widget> _pages = <Widget>[
-    Image.network('https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'),
-    Image.network('https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'),
-    Image.network('https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'),
+    // Image.network('https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'),
+    // Image.network('https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'),
+    // Image.network('https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'),
 
 
-    // new ConstrainedBox(
-    //   constraints: const BoxConstraints.expand(),
-    //   child:new Card(
-    //     child: Container(
-    //       color: Colors.red,
-          
-    //     ),
-    //   )
-    // ),
-    // new ConstrainedBox(
-    //   constraints: const BoxConstraints.expand(),
-    //   child: new Card(
-    //     child: Container(
-    //       color: Colors.blue,
-          
-    //     ),
-    //   )
-    // ),
+    new ConstrainedBox(
+      constraints: const BoxConstraints.expand(),
+      child:new Card(
+        elevation: 20.0,
+        margin: EdgeInsets.only(left: 10.0, top: 10.0,),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+        color: const Color(0xff7c94b6),
+        image: new DecorationImage(
+          fit: BoxFit.fill,
+          image: new NetworkImage('https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true')
+        )
+      ),
+    ),
+  )
+),
+
+    new ConstrainedBox(
+      constraints: const BoxConstraints.expand(),
+      child:new Card(
+        elevation: 20.0,
+        margin: EdgeInsets.only(left: 10.0, top: 10.0),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+        color: const Color(0xff7c94b6),
+        image: new DecorationImage(
+          fit: BoxFit.fill,
+          image: new NetworkImage('https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true')
+        )
+      ),
+    ),
+  )
+),
+
+    new ConstrainedBox(
+      constraints: const BoxConstraints.expand(),
+      child:new Card(
+        elevation: 20.0,
+        margin: EdgeInsets.only(left: 10.0, top: 10.0),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+        color: const Color(0xff7c94b6),
+        image: new DecorationImage(
+          fit: BoxFit.fill,
+          image: new NetworkImage('https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true')
+        )
+      ),
+    ),
+  )
+),
   ];
 
   @override
@@ -110,16 +142,16 @@ final _controller = new PageController();
       endDrawer: new AppDrawer(),
       appBar: AppBar(
         title: Text("SmartChef"),
-        actions: <Widget>[
-          Padding(
-            child: RaisedButton(
         
-            child: Icon(Icons.portrait),
+        actions: <Widget>[
+        
+          Padding(
+            child: IconButton( icon: Icon(Icons.account_circle),
             onPressed: (){
                 _scaffoldKey.currentState.openEndDrawer();
             },
             ),
-            padding: const EdgeInsets.only(right: 10.0 , top: 10.0 , bottom: 10.0),
+            padding: EdgeInsets.only(right: 0.0 , top: 0.0 , bottom: 0.0),
           )
         ],
       ),
@@ -127,9 +159,6 @@ final _controller = new PageController();
        body:Stack(
          fit: StackFit.expand,
         children: <Widget>[
-          // Container(
-          //   decoration: BoxDecoration(color: Colors.blueAccent),
-          // ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -356,395 +385,6 @@ final _controller = new PageController();
             // new Divider(),
           ),
 
-          new FittedBox(
-            child: new ClipRect(
-              child: new BackdropFilter(
-                filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                child: new Container(
-                  width: 20.0,
-                  height: 20.0,
-                  decoration: new BoxDecoration(
-                    color: Colors.grey.shade200.withOpacity(0.5)
-                  ),
-                  child: new FittedBox(
-                    child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                   Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 20.0,
-                    child: Icon(
-                      Icons.fastfood,
-                      color: Colors.red,
-                      size: 20.0,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only( left: 10.0 ,right: 10.0 ,bottom: 10.0)
-                    ),
-                    Text(
-                      "Smart Chef" ,
-                       style: TextStyle(
-                         color: Colors.black,
-                          fontSize: 10.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                ],
-              ),
-            ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-
-          // new Divider(),
-          // new Divider(),
-          // new Divider(),
-          // new Divider(),
-          new FittedBox(
-            child: new ClipRect(
-              child: new BackdropFilter(
-                filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                child: new Container(
-                  width: 20.0,
-                  height: 20.0,
-                  decoration: new BoxDecoration(
-                    color: Colors.grey.shade200.withOpacity(0.5)
-                  ),
-                  child: new FittedBox(
-                    child:  Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                   Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 20.0,
-                    child: Icon(
-                      Icons.fastfood,
-                      color: Colors.red,
-                      size: 20.0,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only( left: 10.0 ,right: 10.0 ,bottom: 10.0)
-                    ),
-                    Text(
-                      "Smart Chef" ,
-                       style: TextStyle(
-                         color: Colors.black,
-                          fontSize: 10.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                ],
-              ),
-            ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          new FittedBox(
-            child: new ClipRect(
-              child: new BackdropFilter(
-                filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                child: new Container(
-                  width: 20.0,
-                  height: 20.0,
-                  decoration: new BoxDecoration(
-                    color: Colors.grey.shade200.withOpacity(0.5)
-                  ),
-                  child: new FittedBox(
-                    child:  Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                   Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 20.0,
-                    child: Icon(
-                      Icons.fastfood,
-                      color: Colors.red,
-                      size: 20.0,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only( left: 10.0 ,right: 10.0 ,bottom: 10.0)
-                    ),
-                    Text(
-                      "Smart Chef" ,
-                       style: TextStyle(
-                         color: Colors.black,
-                          fontSize: 10.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                ],
-              ),
-            ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          new FittedBox(
-            child: new ClipRect(
-              child: new BackdropFilter(
-                filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                child: new Container(
-                  width: 20.0,
-                  height: 20.0,
-                  decoration: new BoxDecoration(
-                    color: Colors.grey.shade200.withOpacity(0.5)
-                  ),
-                  child: new FittedBox(
-                    child:  Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                   Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 20.0,
-                    child: Icon(
-                      Icons.fastfood,
-                      color: Colors.red,
-                      size: 20.0,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only( left: 10.0 ,right: 10.0 ,bottom: 10.0)
-                    ),
-                    Text(
-                      "Smart Chef" ,
-                       style: TextStyle(
-                         color: Colors.black,
-                          fontSize: 10.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                ],
-              ),
-            ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          new FittedBox(
-            child: new ClipRect(
-              child: new BackdropFilter(
-                filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                child: new Container(
-                  width: 20.0,
-                  height: 20.0,
-                  decoration: new BoxDecoration(
-                    color: Colors.grey.shade200.withOpacity(0.5)
-                  ),
-                  child: new FittedBox(
-                    child:  Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                   Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 20.0,
-                    child: Icon(
-                      Icons.fastfood,
-                      color: Colors.red,
-                      size: 20.0,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only( left: 10.0 ,right: 10.0 ,bottom: 10.0)
-                    ),
-                    Text(
-                      "Smart Chef" ,
-                       style: TextStyle(
-                         color: Colors.black,
-                          fontSize: 10.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                ],
-              ),
-            ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          new FittedBox(
-            child: new ClipRect(
-              child: new BackdropFilter(
-                filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                child: new Container(
-                  width: 20.0,
-                  height: 20.0,
-                  decoration: new BoxDecoration(
-                    color: Colors.grey.shade200.withOpacity(0.5)
-                  ),
-                  child: new FittedBox(
-                    child:  Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                   Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 20.0,
-                    child: Icon(
-                      Icons.fastfood,
-                      color: Colors.red,
-                      size: 20.0,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only( left: 10.0 ,right: 10.0 ,bottom: 10.0)
-                    ),
-                    Text(
-                      "Smart Chef" ,
-                       style: TextStyle(
-                         color: Colors.black,
-                          fontSize: 10.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                ],
-              ),
-            ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          new FittedBox(
-            child: new ClipRect(
-              child: new BackdropFilter(
-                filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                child: new Container(
-                  width: 20.0,
-                  height: 20.0,
-                  decoration: new BoxDecoration(
-                    color: Colors.grey.shade200.withOpacity(0.5)
-                  ),
-                  child: new FittedBox(
-                    child:  Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                   Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 20.0,
-                    child: Icon(
-                      Icons.fastfood,
-                      color: Colors.red,
-                      size: 20.0,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only( left: 10.0 ,right: 10.0 ,bottom: 10.0)
-                    ),
-                    Text(
-                      "Smart Chef" ,
-                       style: TextStyle(
-                         color: Colors.black,
-                          fontSize: 10.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                ],
-              ),
-            ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          new FittedBox(
-            child: new ClipRect(
-              child: new BackdropFilter(
-                filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                child: new Container(
-                  width: 20.0,
-                  height: 20.0,
-                  decoration: new BoxDecoration(
-                    color: Colors.grey.shade200.withOpacity(0.5)
-                  ),
-                  child: new FittedBox(
-                    child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                   Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 20.0,
-                    child: Icon(
-                      Icons.fastfood,
-                      color: Colors.red,
-                      size: 20.0,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only( left: 10.0 ,right: 10.0 ,bottom: 10.0)
-                    ),
-                    Text(
-                      "Smart Chef" ,
-                       style: TextStyle(
-                         color: Colors.black,
-                          fontSize: 10.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Padding(
-                    padding: EdgeInsets.only(top: 10.0 , left: 10.0 ,right: 10.0)
-                    ),
-                ],
-              ),
-            ),
-                  ),
-                ),
-              ),
-            ),
-          ),
           new FittedBox(
             child: new ClipRect(
               child: new BackdropFilter(
