@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'MyNavigator.dart';
 import 'Walkthrough.dart';
@@ -5,8 +6,11 @@ import 'SplashScreen.dart';
 
 String _name;
 class IntroScreen extends StatefulWidget {
+  final String name;
+  IntroScreen({Key key, this.name}) : super (key: key);
   @override
-  IntroScreenState createState() {
+  IntroScreenState createState() { 
+    _name = name;
     return IntroScreenState();
   }
 }
@@ -44,7 +48,7 @@ class IntroScreenState extends State<IntroScreen> {
             child: PageView(
               children: <Widget>[
                 Walkthrough(
-                  title: "Welcome, User",
+                  title: "Welcome, $_name",
                   content: "A smart chef app",
                   imageIcon: Icons.mobile_screen_share,
                 ),

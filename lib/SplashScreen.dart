@@ -4,6 +4,7 @@ import 'MyNavigator.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'IntroScreen.dart';
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 final FirebaseAuth auth = FirebaseAuth.instance;
@@ -152,9 +153,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
     final FirebaseUser currentUser = await auth.currentUser();
     assert(user.uid == currentUser.uid);
-    print("User:  $user");
     _name = user.displayName;
-    MyNavigator.goToIntro(c);
+    var route = MaterialPageRoute(builder: (BuildContext context) => IntroScreen(name: _name,),);
+    Navigator.of(c).push(route);
+
     return 'signInWithGoogle succeeded: $user';
   }
 
@@ -188,9 +190,9 @@ class _SplashScreenState extends State<SplashScreen> {
     final FirebaseUser currentUser = await auth.currentUser();
     assert(user.uid == currentUser.uid);
 
-    print("User:  $user");
     _name = user.displayName;
-    MyNavigator.goToIntro(c);
+    var route = MaterialPageRoute(builder: (BuildContext context) => IntroScreen(name: _name,),);
+    Navigator.of(c).push(route);
 
         break;
       case FacebookLoginStatus.cancelledByUser:

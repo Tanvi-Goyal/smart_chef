@@ -1,6 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:ui';
+
+String _name, _email, _photoUrl;
+_fetchDetails() async {
+  FirebaseUser user = await FirebaseAuth.instance.currentUser();
+  _name = user.displayName;
+  _email = user.email;
+  _photoUrl = user.photoUrl;
+}
+
 class DotsIndicator extends AnimatedWidget {
   DotsIndicator({
     this.controller,
@@ -54,7 +64,10 @@ class DotsIndicator extends AnimatedWidget {
 
 class HomeScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => new _HomeScreenState();
+  _HomeScreenState createState() {
+    _fetchDetails();
+    return _HomeScreenState();
+  }
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
@@ -823,17 +836,18 @@ class _AppDrawerState extends State<AppDrawer> {
 child: ListView(
   children: <Widget>[
     new UserAccountsDrawerHeader(
-      accountName: new Text("Tanvi Goyal"),
-      accountEmail: new Text("goyaltanvi94@gmail.com"),
-      // currentAccountPicture: new GestureDetector(
-      //   child: new CircleAvatar(
-      //     backgroundImage: new NetworkImage("url"),
-      //   ),
-      // ),
+      accountName: new Text(_name),
+      accountEmail: new Text(_email),
+      currentAccountPicture: new GestureDetector(
+        child: new CircleAvatar(
+          backgroundImage: new NetworkImage(_photoUrl),
+        ),
+      ),
       decoration: new BoxDecoration(
+        color: const Color(0xff7c94b6),
         image: new DecorationImage(
           fit: BoxFit.fill,
-          image: new NetworkImage("https://firebasestorage.googleapis.com/v0/b/smart-chef21.appspot.com/o/Screenshot_20180509-231107.png?alt=media&token=f2a107a7-84cc-44a1-ae6b-cb175be2dcf2")
+          image: new NetworkImage("")
         )
       ),
     ),
