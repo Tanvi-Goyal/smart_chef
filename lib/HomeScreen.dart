@@ -77,33 +77,29 @@ final _controller = new PageController();
   static const _kCurve = Curves.ease;
   final _kArrowColor = Colors.black.withOpacity(0.8);
   final List<Widget> _pages = <Widget>[
-    new ConstrainedBox(
-      constraints: const BoxConstraints.expand(),
-      child: new Card(
-        child: Container(
-          color: Colors.amberAccent,
+    Image.network('https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'),
+    Image.network('https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'),
+    Image.network('https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'),
+
+
+    // new ConstrainedBox(
+    //   constraints: const BoxConstraints.expand(),
+    //   child:new Card(
+    //     child: Container(
+    //       color: Colors.red,
           
-        ),
-      )
-    ),
-    new ConstrainedBox(
-      constraints: const BoxConstraints.expand(),
-      child:new Card(
-        child: Container(
-          color: Colors.red,
+    //     ),
+    //   )
+    // ),
+    // new ConstrainedBox(
+    //   constraints: const BoxConstraints.expand(),
+    //   child: new Card(
+    //     child: Container(
+    //       color: Colors.blue,
           
-        ),
-      )
-    ),
-    new ConstrainedBox(
-      constraints: const BoxConstraints.expand(),
-      child: new Card(
-        child: Container(
-          color: Colors.blue,
-          
-        ),
-      )
-    ),
+    //     ),
+    //   )
+    // ),
   ];
 
   @override
